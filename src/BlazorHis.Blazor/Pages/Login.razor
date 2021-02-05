@@ -49,7 +49,7 @@
     {
         try
         {
-            var result = await Http.PostAsJsonAsync<Model>($@"https://localhost:44309/api/account/login", model);
+            var result = await Http.PostAsJsonAsync<Model>($@"/api/account/login", model);
             string resultContent = result.Content.ReadAsStringAsync().Result;
 
             Console.WriteLine($"Success:{JsonSerializer.Serialize(resultContent)}");
