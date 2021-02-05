@@ -15,16 +15,6 @@
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BlazorHis.Domain.Shared\BlazorHis.Domain.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Pages\Welcome - 复制.razor.less">
-      <DependentUpon>Welcome.razor.less</DependentUpon>
-    </None>
-  </ItemGroup>
-
   <PropertyGroup Condition=" '$(SolutionDir)'==''">
     <SolutionDir>./</SolutionDir>
   </PropertyGroup>
