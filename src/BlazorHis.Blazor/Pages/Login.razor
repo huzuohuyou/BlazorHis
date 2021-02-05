@@ -1,7 +1,13 @@
 @using System.ComponentModel.DataAnnotations;
 @using System.Text.Json;
 @using BlazorHis.Login;
+@inject MessageService _message
 @inject HttpClient Http
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@inject NotificationService _notice
+
+
 
 <Form Model="@model"
       OnFinish="OnFinish"
@@ -41,14 +47,31 @@
 
     private async Task OnFinish(EditContext editContext)
     {
-        var result = await Http.PostAsJsonAsync<Model>("https://localhost:44309/api/account/login", model);
-        string resultContent = result.Content.ReadAsStringAsync().Result;
-
-        Console.WriteLine($"Success:{JsonSerializer.Serialize(resultContent)}");
-        if (JsonSerializer.Deserialize<LoginResponse>(resultContent).result == 1)
+        try
         {
-            await OnClickCallback.InvokeAsync();
+            var result = await Http.PostAsJsonAsync<Model>($@"https://localhost:44309/api/account/login", model);
+            string resultContent = result.Content.ReadAsStringAsync().Result;
+
+            Console.WriteLine($"Success:{JsonSerializer.Serialize(resultContent)}");
+            if (JsonSerializer.Deserialize<LoginResponse>(resultContent).result == 1)
+            {
+                await OnClickCallback.InvokeAsync();
+                await _message.Success("登陆成功！！！");
+            }
+            else
+            {
+                await _message.Error("登陆失败！！！");
+            }
         }
+        catch (Exception ex)
+        {
+            await _notice.Open(new NotificationConfig()
+            {
+                Message = "异常",
+                Description = "无法连接到服务器！！！"
+            });
+        }
+
     }
 
     private void OnFinishFailed(EditContext editContext)
