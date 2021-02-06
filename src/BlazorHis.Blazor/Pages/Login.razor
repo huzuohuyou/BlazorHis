@@ -42,7 +42,6 @@
     [Parameter]
     public EventCallback<MouseEventArgs> OnClickCallback { get; set; }
 
-    private int Value;
     private Model model = new Model();
 
     private async Task OnFinish(EditContext editContext)
@@ -63,7 +62,7 @@
                 await _message.Error("登陆失败！！！");
             }
         }
-        catch (Exception ex)
+        catch (Exception )
         {
             await _notice.Open(new NotificationConfig()
             {
