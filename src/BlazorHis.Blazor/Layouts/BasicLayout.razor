@@ -1,23 +1,21 @@
 ﻿@namespace BlazorHis.Blazor
 @inherits LayoutComponentBase
 
-<AntDesign.Pro.Layout.BasicLayout 
-    Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
-    MenuData="_menuData">
+<AntDesign.Pro.Layout.BasicLayout Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
+                                  MenuData="_menuData">
     <RightContentRender>
-       
+
     </RightContentRender>
 
     <ChildContent>
-            @Body
+        @Body
     </ChildContent>
 </AntDesign.Pro.Layout.BasicLayout>
 <SettingDrawer />
 
 @code
-{
-    private readonly MenuDataItem[] _menuData = 
-    {
+{ private readonly MenuDataItem[] _menuData =
+            {
         new MenuDataItem
         {
             Path = "/",
@@ -25,5 +23,24 @@
             Key = "welcome",
             Icon = "smile",
         }
-    };
-}
+         ,new MenuDataItem
+        {
+            Path = "/ListRecord",
+            Name = "ListRecord",
+            Key = "ListRecord",
+            Icon = "bug",
+        } ,new MenuDataItem
+        {
+            Path = "/CreateRecord",
+            Name = "CreateRecord",
+            Key = "CreateRecord",
+            Icon = "smile",
+        }
+        ,new MenuDataItem
+        {
+            Path = "/EditRecord",
+            Name = "EditRecord",
+            Key = "EditRecord",
+            Icon = "bug",
+        }
+    }; }

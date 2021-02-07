@@ -9,16 +9,16 @@
            OnOk="@HandleOk"
            OnCancel="@HandleCancel"
            Footer="null">
-        <Login OnClickCallback="@ShowMessage"></Login>
+        <Login Param="123132" ></Login>
     </Modal>
     @code{
         string title = "登陆";
-        bool _visible = true;
+        bool _visible = false;
         private string _Value;
 
         private void ShowMessage(MouseEventArgs e)
         {
-            _visible = false;
+            _visible = true;
             Console.WriteLine(e);
         }
 

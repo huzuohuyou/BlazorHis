@@ -1,0 +1,55 @@
+@page "/record2"
+@using System.ComponentModel
+@using System.Text.Json;
+@inject HttpClient Http
+<PageContainer Title="欢迎">
+    <Table DataSource="data" PageSize="10" ScrollX="850" ScrollY="300">
+        <AntDesign.Column @bind-Field="@context.dateDisplayValue" Width="100" Fixed="left" />
+        <AntDesign.Column @bind-Field="@context.phone" Width="100" Fixed="left" />
+        <AntDesign.Column @bind-Field="@context.dept" Width="100" />
+        <AntDesign.Column @bind-Field="@context.typeName" Width="150" />
+        <AntDesign.Column @bind-Field="@context.question" Width="150" />
+        <AntDesign.Column @bind-Field="@context.answer" Width="150" />
+
+        <AntDesign.ActionColumn Title="操作" Width="150" Fixed="right">
+            <a>编辑</a>
+            <a>删除</a>
+        </AntDesign.ActionColumn>
+    </Table>
+
+    @code {
+        public class Result
+        {
+            public int totalCount { get; set; }
+            public Column[] items { get; set; }
+        }
+        public class Response
+        {
+            public Result result { get; set; }
+        }
+        public class Column
+        {
+            [DisplayName("日期")]
+            public string dateDisplayValue { get; set; }
+            [DisplayName("电话")]
+            public string phone { get; set; }
+            [DisplayName("科室")]
+            public string dept { get; set; }
+            [DisplayName("类型")]
+            public string typeName { get; set; }
+            [DisplayName("服务内容")]
+            public string question { get; set; }
+            [DisplayName("解决方案")]
+            public string answer { get; set; }
+        }
+        protected override async Task OnInitializedAsync()
+        {
+            var result = await Http.GetAsync($@"http://capinfo.devops.com:21021/api/services/app/question/GetAllQuestion?keyword=&userid=0&maxResultCount=10&skipCount=0");
+            string resultContent = result.Content.ReadAsStringAsync().Result;
+            var r = JsonSerializer.Deserialize<Response>(resultContent);
+            data = r.result.items;
+        }
+        Column[] data { get; set; }
+
+    }
+</PageContainer>

@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <PackageReference Include="AntDesign" Version="0.6.0-*" />
-    <PackageReference Include="AntDesign.Charts" Version="0.2.0-*" />
     <PackageReference Include="AntDesign.Pro.Layout" Version="0.1.0-*" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.2" PrivateAssets="all" />
@@ -33,6 +32,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Pages\Welcome - 复制 - 复制 - 复制 - 复制.razor.less">
+      <DependentUpon>Welcome - 复制 - 复制 - 复制.razor.less</DependentUpon>
+    </None>
+    <None Update="Pages\Welcome - 复制 - 复制 - 复制%282%29.razor.less">
+      <DependentUpon>Welcome - 复制 - 复制.razor.less</DependentUpon>
+    </None>
+    <None Update="Pages\Welcome - 复制 - 复制 - 复制.razor.less">
+      <DependentUpon>Welcome - 复制 - 复制.razor.less</DependentUpon>
+    </None>
+    <None Update="Pages\Welcome - 复制 - 复制%282%29 - 复制.razor.less">
+      <DependentUpon>Welcome - 复制 - 复制(2).razor.less</DependentUpon>
+    </None>
+    <None Update="Pages\Welcome - 复制 - 复制%282%29.razor.less">
+      <DependentUpon>Welcome.razor.less</DependentUpon>
+    </None>
+    <None Update="Pages\Welcome - 复制 - 复制%283%29.razor.less">
+      <DependentUpon>Welcome.razor.less</DependentUpon>
+    </None>
+    <None Update="Pages\Welcome - 复制 - 复制.razor.less">
+      <DependentUpon>Welcome.razor.less</DependentUpon>
+    </None>
     <None Update="Pages\Welcome - 复制.razor.less">
       <DependentUpon>Welcome.razor.less</DependentUpon>
     </None>

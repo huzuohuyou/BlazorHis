@@ -31,16 +31,50 @@
 </Form>
 @code
 {
+    protected  override void OnInitialized()
+    {
+
+    }
     public class Model
     {
         [Required]
-        public string userNameOrEmailAddress { get; set; }
+        public string userNameOrEmailAddress { get; set; } = "admin";
         [Required]
-        public string password { get; set; }
+        public string password { get; set; } = "1q2w3E*";
         public bool rememberMe { get; set; } = true;
     }
+    #region 父组件向子组件传值
+
+
+    [Parameter]
+    public string Param { get; set; }
+    //public override async Task SetParametersAsync(ParameterView parameters)
+    //{
+    //    if (parameters.TryGetValue<string>(nameof(Param), out var value))
+    //    {
+    //        _message.Success($"The value of 'Param' is {value}.");
+    //    }
+    //    else
+    //    {
+    //        _message.Error("The value of 'Param' is null.------------------");
+    //    }
+
+    //    await base.SetParametersAsync(parameters);
+    //}
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            //await _message.Success($"The value of 'Param' is {Param}.");
+        }
+    }
+    #endregion
+
+    #region 子组件更新父组件
     [Parameter]
     public EventCallback<MouseEventArgs> OnClickCallback { get; set; }
+    #endregion
+
 
     private Model model = new Model();
 

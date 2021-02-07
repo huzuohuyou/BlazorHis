@@ -205,13 +205,6 @@
     <script src="_content/AntDesign.Charts/g2plot.js"></script>
     <script src="_content/AntDesign/js/ant-design-blazor.js"></script>
     <script src="_content/AntDesign.Charts/ant-design-charts-blazor.js"></script>
-    <script>
-    let baseTag = document.getElementsByTagName('base')[0];
-    let baseHref = baseTag.getAttribute('href');
-    let href = window.location.pathname.substr(0, baseHref.length)
-    if (!href.endsWith('/')) href += '/';
-    baseTag.setAttribute('href', href);
-</script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
 
