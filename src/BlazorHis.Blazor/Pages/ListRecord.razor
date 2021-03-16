@@ -4,7 +4,7 @@
 @using System.Text.Json;
 @inject HttpClient Http
 <PageContainer Title="欢迎">
-    <Table TItem="Data" DataSource="@data" PageSize="10" ScrollX="1000" Size=@TableSize.Small>
+    <Table TItem="Data" DataSource="@data" PageSize="10" ScrollX="900"  Size=@TableSize.Small>
         <Column @bind-Field="@context.dateDisplayValue" Width="100">
             <a>@context.dateDisplayValue</a>
         </Column>
